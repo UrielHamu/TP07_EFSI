@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  Alert,
-} from "react-native";
+import { View,  Text,  Alert,  StyleSheet} from "react-native";
 
-import Layout from "../components/Layout";
+import Header from "./components/Header";
+import CuadroDeTexto from "./components/CuadroDeTexto";
+import BotonIngreso from "./components/BotonIngreso";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -35,98 +30,50 @@ export default function LoginScreen() {
   };
 
   return (
-    <Layout>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>
-          Login App (Apellido, Apellido)
-        </Text>
-      </View>
+    <View style={styles.container}>
+      <Header />
 
-      <View style={styles.formContainer}>
-        <TextInput
-          style={styles.input}
+      <View style={styles.formulario}>
+        <CuadroDeTexto
           placeholder="Correo electrónico"
           value={email}
           onChangeText={setEmail}
-          autoCapitalize="none"
         />
 
-        <TextInput
-          style={styles.input}
+        <CuadroDeTexto
           placeholder="Contraseña"
-          secureTextEntry
           value={password}
           onChangeText={setPassword}
+          secureTextEntry={true}
         />
 
-        <TouchableOpacity
-          style={styles.button}
+        <BotonIngreso
+          texto="INGRESAR"
           onPress={handleLogin}
-        >
-          <Text style={styles.buttonText}>
-            INGRESAR
-          </Text>
-        </TouchableOpacity>
+        />
 
-        <TouchableOpacity>
-          <Text style={styles.link}>
-            Olvidaste la clave?
-          </Text>
-        </TouchableOpacity>
+        <Text style={styles.link}>
+          Olvidaste la clave?
+        </Text>
 
-        <TouchableOpacity>
-          <Text style={styles.link}>
-            Crear Cuenta
-          </Text>
-        </TouchableOpacity>
+        <Text style={styles.link}>
+          Crear Cuenta
+        </Text>
       </View>
-    </Layout>
+    </View>
   );
 }
+
 const styles = StyleSheet.create({
-  header: {
-    backgroundColor: "#6C3CF0",
-    height: 90,
-    justifyContent: "center",
-    alignItems: "center",
+  container: {
+    flex: 1,
+    backgroundColor: "#ECECEC",
   },
 
-  headerTitle: {
-    color: "white",
-    fontSize: 22,
-    fontWeight: "bold",
-  },
-
-  formContainer: {
+  formulario: {
     flex: 1,
     justifyContent: "center",
     paddingHorizontal: 25,
-  },
-
-  input: {
-    height: 55,
-    borderWidth: 1,
-    borderColor: "#6C3CF0",
-    borderRadius: 5,
-    paddingHorizontal: 15,
-    marginBottom: 15,
-    backgroundColor: "white",
-  },
-
-  button: {
-    backgroundColor: "#7D56F5",
-    height: 55,
-    borderRadius: 5,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 25,
-    marginBottom: 20,
-  },
-
-  buttonText: {
-    color: "white",
-    fontSize: 22,
-    fontWeight: "500",
   },
 
   link: {
