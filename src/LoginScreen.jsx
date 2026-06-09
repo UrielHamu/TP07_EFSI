@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { View,  Text,  Alert,  StyleSheet} from "react-native";
+import { View,  Text,  Alert,  StyleSheet, Image} from "react-native";
 
 import Header from "./components/Header";
 import CuadroDeTexto from "./components/CuadroDeTexto";
 import BotonIngreso from "./components/BotonIngreso";
+import Layout from "./components/Layout";
+
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -30,8 +32,13 @@ export default function LoginScreen() {
   };
 
   return (
-    <View style={styles.container}>
+     <Layout>
       <Header />
+
+      <Image
+        source={require("../assets/coca-cola.png")}
+        style={styles.logo}
+      />
 
       <View style={styles.formulario}>
         <CuadroDeTexto
@@ -60,20 +67,23 @@ export default function LoginScreen() {
           Crear Cuenta
         </Text>
       </View>
-    </View>
+    </Layout>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#ECECEC",
+  logo: {
+    width: 250,
+    height: 120,
+    resizeMode: "contain",
+    alignSelf: "center",
+    marginTop: 30,
   },
 
   formulario: {
     flex: 1,
-    justifyContent: "center",
     paddingHorizontal: 25,
+    marginTop: 20,
   },
 
   link: {

@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <View style={styles.header}>
       <Text style={styles.titulo}>
-        Login App (Apellido, Apellido)
+        Login App (Hamu, Abas, Mizrahi)
       </Text>
     </View>
   );
