@@ -3,6 +3,7 @@ import { View,  Text,  Alert,  StyleSheet, Image} from "react-native";
 
 import Header from "./components/Header";
 import CuadroDeTexto from "./components/CuadroDeTexto";
+import Logo from "./components/Logo";
 import BotonIngreso from "./components/BotonIngreso";
 import Layout from "./components/Layout";
 
@@ -12,8 +13,8 @@ export default function LoginScreen() {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    const usuarioValido = "hamuuriel@gmail.com";
-    const passwordValida = "123456";
+    const usuarioValido = "hamuuriel@gmail.com"; //usuario hardcodeado
+    const passwordValida = "123456";//contraseña hardcodeada
 
     if (
       email === usuarioValido &&
@@ -34,9 +35,9 @@ export default function LoginScreen() {
   return (
      <Layout>
       <Header />
-
-      <Image
-        source={require("../assets/coca-cola.png")}
+      <Logo />
+      <Image //en html: <img
+        source={require("../assets/coca-cola.png")}//en html: src
         style={styles.logo}
       />
 
@@ -51,7 +52,7 @@ export default function LoginScreen() {
           placeholder="Contraseña"
           value={password}
           onChangeText={setPassword}
-          secureTextEntry={true}
+          secureTextEntry={true}//que no se vea lo que escribe por seguridad
         />
 
         <BotonIngreso
@@ -72,14 +73,6 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-  logo: {
-    width: 250,
-    height: 120,
-    resizeMode: "contain",
-    alignSelf: "center",
-    marginTop: 30,
-  },
-
   formulario: {
     flex: 1,
     paddingHorizontal: 25,
